@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/putih"
+    tools:context=".SignUpActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/welcome_back"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:id="@+id/welcomeback"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeback"
+        android:text="@string/which_part"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/whichpart"
+        android:textSize="12sp"
+        android:layout_marginStart="12dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/fullname"
+        app:layout_constraintTop_toBottomOf="@+id/whichpart"
+        android:paddingHorizontal="16dp"
+        android:hint="@string/full_name"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="15dp"
+        android:elevation="10dp"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/black"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/edit_text_background"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/fullname"
+        android:paddingHorizontal="16dp"
+        android:hint="@string/your_pass"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="sans-serif-medium"
+        android:elevation="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_background"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/yellow"
+        android:height="70dp"
+        android:text="@string/lanjut"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="15dp"
+        app:cornerRadius="34dp"
+        android:layout_marginEnd="15dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

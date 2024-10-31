@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CinaTIX</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="which_part">Which part of country that you call home?</string>
+    <string name="full_name">Full Name</string>
+    <string name="your_pass">Your Password</string>
+    <string name="lanjut">Lanjut</string>
+    <string name="create_pass">Create Your Password</string>
+    <string name="new_pass">New Password</string>
+    <string name="retype">Re-Type New Password</string>
+    <string name="atleast">At Least 9 Characters, Containing A Letter And A Number</string>
 </resources>
