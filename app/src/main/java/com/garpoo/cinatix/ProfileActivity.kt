@@ -1,4 +1,4 @@
-package com.example.cinatix
+package com.garpoo.cinatix
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
