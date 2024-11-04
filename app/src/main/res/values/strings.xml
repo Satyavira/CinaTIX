@@ -9,4 +9,16 @@
     <string name="new_pass">New Password</string>
     <string name="retype">Re-Type New Password</string>
     <string name="atleast">At Least 9 Characters, Containing A Letter And A Number</string>
-</resources>
+
+
+    <!-- Profile Activity -->
+    <string name="my_profile">My Profile</string>
+    <string name="name">Lisa Manoban</string>
+    <string name="phone_number">+625805042303</string>
+    <string name="wishlist">Wishlist Movie</string>
+    <string name="favorite">Favorite Movie</string>
+    <string name="logout">Log Out</string>
+
+    <!-- Wishlist Movie Activity -->
+    <string name="movie_name">The Wild Robot</string>
+</resources>men
