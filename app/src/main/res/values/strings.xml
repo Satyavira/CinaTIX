@@ -21,4 +21,9 @@
 
     <!-- Wishlist Movie Activity -->
     <string name="movie_name">The Wild Robot</string>
-</resources>men
+
+    <!-- Ticket Activity -->
+    <string name="search">Search</string>
+    <string name="tiket_aktif">TIKET AKTIF</string>
+    <string name="daftar_transaksi">DAFTAR TRANSAKSI</string>
+</resources>
