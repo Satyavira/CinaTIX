@@ -12,7 +12,7 @@
         android:id="@+id/tv_my_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Profile"
+        android:text="@string/my_profile"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#000000"
@@ -25,7 +25,6 @@
         android:id="@+id/card_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:layout_margin="16dp"
         app:cardElevation="4dp"
         app:cardCornerRadius="12dp"
@@ -45,16 +44,16 @@
                 android:id="@+id/tv_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lisa Manoban"
+                android:text="@string/name"
                 android:textSize="16sp"
-                android:textColor="#000000"
-                />
+                android:textStyle="bold"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/tv_user_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+625805042303"
+                android:text="@string/phone_number"
                 android:textSize="14sp"
                 android:textColor="#707070"/>
         </LinearLayout>
@@ -97,11 +96,11 @@
                     android:id="@+id/tv_wishlist_movie"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginStart="16dp"
+                    android:layout_weight="1"
                     android:text="Wishlist Movie"
-                    android:textSize="16sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="24dp"
@@ -135,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="16dp"
-                    android:text="Film Saya"
+                    android:text="@string/favorite"
                     android:textSize="16sp"
                     android:textColor="#000000" />
 
@@ -171,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="16dp"
-                    android:text="Logout"
+                    android:text="@string/logout"
                     android:textSize="16sp"
                     android:textColor="#000000" />
 
@@ -184,102 +183,23 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Bottom Navigation -->
-    <LinearLayout
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="97dp"
-        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:gravity="center"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Home Item -->
-        <LinearLayout
-            android:id="@+id/nav_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingVertical="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_home" />
-
-
-        </LinearLayout>
-
-        <!-- Movies Item -->
-        <LinearLayout
-            android:id="@+id/nav_movies"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingVertical="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_movies" />
-
-        </LinearLayout>
-
-        <!-- Tickets Item -->
-        <LinearLayout
-            android:id="@+id/nav_tickets"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingVertical="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_tickets" />
-
-        </LinearLayout>
-
-        <!-- Profile Item -->
-        <LinearLayout
-            android:id="@+id/nav_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingVertical="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_profile" />
-
-        </LinearLayout>
-    </LinearLayout>
+        app:menu="@menu/bottom_nav_menu" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="60dp" />
+        app:layout_constraintGuide_percent="0.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
