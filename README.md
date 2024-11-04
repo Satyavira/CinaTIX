@@ -2,6 +2,7 @@
 
 # Kelompok Garpoo
 Ketua : Satyavira Prathama - 221401126
+
 Anggota :
 1. Dhea Tania Salsabila Harahap - 221401092
 2. Fico Yanton Jeremia Sibagariang -221401098
