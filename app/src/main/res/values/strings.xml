@@ -9,6 +9,16 @@
     <string name="new_pass">New Password</string>
     <string name="retype">Re-Type New Password</string>
     <string name="atleast">At Least 9 Characters, Containing A Letter And A Number</string>
+    <string name="metode">Metode Pembayaran</string>
+    <string name="ewallet">E-WALLET</string>
+    <string name="sebelum">Sebelum bertransaksi, pastikan metode pembayaran yang kamu pilih sudah tersedia di ponselmu ya!</string>
+    <string name="dana">DANA</string>
+    <string name="cashbackdana">Cashback 50% maks. 25rb</string>
+    <string name="gopay">GoPay</string>
+    <string name="gopay_reward">Dapatkan reword voucher Rp10.000</string>
+    <string name="shopee_pay">ShopeePay</string>
+    <string name="shopee_pay_cashback">Cashback s/d 10rb koin Shopee</string>
+    <string name="ovo">OVO</string>
 
 
     <!-- Profile Activity -->
