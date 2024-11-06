@@ -1,0 +1,241 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:background="#F5F5F5"
+    >
+
+    <!-- NestedScrollView for the main content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F5F5F5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/guidelineTop"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd">
+
+                <TextView
+                    android:id="@+id/tv_welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome Lisa"
+                    android:textSize="12sp"
+                    android:textColor="#6E6E6E"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_welcome2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let’s relax and watch a movie."
+                    android:textSize="12sp"
+                    android:textColor="#3A3434"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_movie_image"
+                    android:background="@drawable/avatar_background"
+                    android:clipToOutline="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_welcome" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/search_bg"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="20dp"
+                android:inputType="text"
+                android:hint="Search movie, cinema, genre..."
+                android:textColorHint="#B0B0B0"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toBottomOf="@id/constraintlayout_profile" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout_now_playing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toBottomOf="@id/search_bar">
+
+                <TextView
+                    android:id="@+id/tv_now_playing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#12293F"
+                    android:layout_weight="1"
+                    android:text="Now Playing" />
+
+                <TextView
+                    android:id="@+id/tv_now_playing_see_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CEA860"
+                    android:text="See All" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout_now_playing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout_now_playing">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager2"
+                    android:layout_width="match_parent"
+                    android:paddingStart="80dp"
+                    android:paddingEnd="80dp"
+                    android:layout_height="400dp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarNowPlaying"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/viewPager2"
+                    app:layout_constraintTop_toTopOf="@+id/viewPager2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutComingSoon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_layout_now_playing">
+
+                <TextView
+                    android:id="@+id/tv_coming_soon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Comming Soon"
+                    android:textColor="#12293F"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_coming_soon_see_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See All"
+                    android:textColor="#CEA860" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutComingSoon"
+                >
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_coming_soon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toTopOf="parent">
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recycler_view_coming_soon"
+                    app:layout_constraintTop_toTopOf="@+id/recycler_view_coming_soon"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.02" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.07" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.98" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.93" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    app:labelVisibilityMode="unlabeled"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
