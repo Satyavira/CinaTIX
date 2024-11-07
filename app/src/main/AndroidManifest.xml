@@ -19,6 +19,15 @@
             android:name=".OrderSummary"
             android:exported="false" />
         <activity
+            android:name=".OnboardPageThreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BioskopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Onboard_Three_Activity"
+            android:exported="false" />
+        <activity
             android:name=".CreatePassActivity"
             android:exported="false" />
         <activity
