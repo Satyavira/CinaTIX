@@ -38,4 +38,21 @@
     <string name="daftar_transaksi">DAFTAR TRANSAKSI</string>
 
     <!-- Order Summary Activity -->
+    <string name="order_activity">Order Summary</string>
+    <string name="movie_title">Kuasa Gelap</string>
+    <string name="movie_genre">Drama Comedy</string>
+    <string name="movie_location">DELI PARK XXI</string>
+    <string name="movie_date_time">Kamis, 24 Okt 2024, 16:30</string>
+    <string name="order_id">ORDER ID : 10010012420</string>
+    <string name="ticket_count">3  TIKET</string>
+    <string name="ticket_seats">B5, B6, B7</string>
+    <string name="seat_type">KURSI REGULAR</string>
+    <string name="seat_price">Rp. 30.000 x 3</string>
+    <string name="service_fee">BIAYA LAYANAN</string>
+    <string name="service_fee_price">Rp. 5.000 x 1</string>
+    <string name="payment_method_lable">Payment Method</string>
+    <string name="dana_order_summary">DANA</string>
+    <string name="cashback_order_summary">Cashback 50% maks. 25rb</string>
+    <string name="complete_payment">Selesaikan pembayaran Anda dalam 07:00</string>
+    <string name="notice">*Pembelian ticket tidak bisa dirubah / dibatalkan</string>
 </resources>
