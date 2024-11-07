@@ -36,4 +36,6 @@
     <string name="search">Search</string>
     <string name="tiket_aktif">TIKET AKTIF</string>
     <string name="daftar_transaksi">DAFTAR TRANSAKSI</string>
+
+    <!-- Order Summary Activity -->
 </resources>

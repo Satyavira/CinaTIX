@@ -23,46 +23,36 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <!-- Tabs for TIKET AKTIF and DAFTAR TRANSAKSI -->
-    <TextView
-        android:id="@+id/tiket_aktif"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tiket_aktif"
-        android:textSize="16sp"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-medium"
+        android:background="#FFFFFF"
+        app:tabIndicatorColor="#FFC107"
+        app:tabSelectedTextColor="#000000"
+        app:tabTextColor="#999999"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"/>
-
-    <TextView
-        android:id="@+id/daftar_transaksi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/daftar_transaksi"
-        android:textSize="16sp"
-        android:textColor="#999999"
-        android:fontFamily="sans-serif"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
-    <!-- Active Indicator Line Under TIKET AKTIF -->
-    <View
-        android:id="@+id/active_indicator"
-        android:layout_width="130dp"
-        android:layout_height="2dp"
-        android:background="#FFC107"
-        app:layout_constraintTop_toBottomOf="@id/tiket_aktif"
-        app:layout_constraintStart_toStartOf="@id/tiket_aktif"
-        app:layout_constraintEnd_toEndOf="@id/tiket_aktif"
-        android:layout_marginTop="4dp"/>
+        <!-- Tabs -->
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_tiket_aktif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tiket_aktif" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_daftar_transaksi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daftar_transaksi" />
+    </com.google.android.material.tabs.TabLayout>
 
     <!-- Bottom Navigation -->
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
