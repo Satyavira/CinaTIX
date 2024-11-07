@@ -29,6 +29,12 @@
     <string name="lihat_film">Lihat Film</string>
     <string name="pergi_beranda">Pergi Ke Beranda</string>
 
+    <!-- Item Schedule -->
+    <string name="cinema_name">DELI PARK XXI</string>
+    <string name="cinema_loaction">5.71 Km | Deli Park Mall Lt.5 Guru Patimpus, Medan</string>
+    <string name="ticket_type">2D</string>
+    <string name="ticket_price">Rp. 30.000"</string>
+
     <!-- Movie Sinopsis Activity -->
     <string name="actor_image">Cewe Cantik</string>
     <string name="deskripsi_film">2024 • Horor • 2h 28m</string>
