@@ -5,10 +5,13 @@
     <string name="full_name">Full Name</string>
     <string name="your_pass">Your Password</string>
     <string name="lanjut">Lanjut</string>
+    <string name="your_email">Your Email</string>
     <string name="create_pass">Create Your Password</string>
     <string name="new_pass">New Password</string>
     <string name="retype">Re-Type New Password</string>
     <string name="atleast">At Least 9 Characters, Containing A Letter And A Number</string>
+    <string name="masuk">Masuk</string>
+    <string name="belum_punya_akun">Belum punya akun? Daftar Sekarang!</string>
     <string name="metode">Metode Pembayaran</string>
     <string name="ewallet">E-WALLET</string>
     <string name="sebelum">Sebelum bertransaksi, pastikan metode pembayaran yang kamu pilih sudah tersedia di ponselmu ya!</string>
