@@ -23,6 +23,11 @@
     <string name="shopee_pay_cashback">Cashback s/d 10rb koin Shopee</string>
     <string name="ovo">OVO</string>
 
+    <!-- Welcome Activity -->
+    <string name="welcome_text">SELAMAT DATANG DI CINATIX</string>
+    <string name="descriptive_text">Yey! akunmu sudah aktif. Dapatkan tiket bioskop sekarang, dan eksplor aplikasi CINATIX untuk lebih banyak hiburan!</string>
+    <string name="lihat_film">Lihat Film</string>
+    <string name="pergi_beranda">Pergi Ke Beranda</string>
 
     <!-- Profile Activity -->
     <string name="my_profile">My Profile</string>
