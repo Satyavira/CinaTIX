@@ -218,7 +218,7 @@
                 android:id="@+id/dana_order_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DANA"
+                android:text="@string/dana"
                 android:textSize="16sp"
                 android:textColor="#000000"
                 android:fontFamily="sans-serif-medium" />
@@ -228,7 +228,7 @@
                 android:id="@+id/cashback_order_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cashback 50% maks. 25rb"
+                android:text="@string/cashbackdana"
                 android:textSize="14sp"
                 android:textColor="#8a8a8a"
                 android:layout_marginTop="4dp" />

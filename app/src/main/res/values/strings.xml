@@ -51,8 +51,6 @@
     <string name="service_fee">BIAYA LAYANAN</string>
     <string name="service_fee_price">Rp. 5.000 x 1</string>
     <string name="payment_method_lable">Payment Method</string>
-    <string name="dana_order_summary">DANA</string>
-    <string name="cashback_order_summary">Cashback 50% maks. 25rb</string>
     <string name="complete_payment">Selesaikan pembayaran Anda dalam 07:00</string>
     <string name="notice">*Pembelian ticket tidak bisa dirubah / dibatalkan</string>
 </resources>
