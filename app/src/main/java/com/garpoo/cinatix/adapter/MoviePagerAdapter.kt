@@ -36,14 +36,14 @@ class MoviePagerAdapter(
         fun bind(movie: Movie) {
             context?.let {
                 Glide.with(it)
-                    .load(movie.posterUrl)
+                    .load(movie.poster_path)
                     .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
                     .into(binding.moviePosterImage) // Load image into ImageView
             }
 
             // Set text data
             binding.movieTitle.text = movie.title
-            binding.movieGenre.text = movie.genre
+            binding.movieGenre.text = movie.genre_ids[0].toString()
 
             // Show/hide movie information based on the current position
             if (adapterPosition == currentPosition) {
