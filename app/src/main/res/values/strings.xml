@@ -29,6 +29,17 @@
     <string name="lihat_film">Lihat Film</string>
     <string name="pergi_beranda">Pergi Ke Beranda</string>
 
+    <!-- Movie Sinopsis Activity -->
+    <string name="actor_image">Cewe Cantik</string>
+    <string name="deskripsi_film">2024 • Horor • 2h 28m</string>
+    <string name="identitas_director">Director\nBobby Prasetyo</string>
+    <string name="watch_trailer">Watch Trailer</string>
+    <string name="sinopsis">SINOPSIS</string>
+    <string name="jadwal">JADWAL</string>
+    <string name="sinopsis_text">After the death of his mother and sister in a tragic accident, Thomas (Jerome Kurnia) intends to resign as Father. However, he was given the final task of helping the exorcist Father, Rendra (Lukman Sardi), whose health wa...</string>
+    <string name="cast_label">Pemeran</string>
+    <string name="beli_tiket">BELI TIKET</string>
+
     <!-- Profile Activity -->
     <string name="my_profile">My Profile</string>
     <string name="name">Lisa Manoban</string>
