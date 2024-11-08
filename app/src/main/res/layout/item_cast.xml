@@ -9,13 +9,13 @@
     <!-- Actor's Image -->
     <ImageView
         android:id="@+id/actor_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"
         android:src="@drawable/iv_cast"
-    android:layout_marginBottom="4dp"
-    android:clipToOutline="true"
-    android:contentDescription="@string/actor_image" />
+        android:layout_marginBottom="4dp"
+        android:clipToOutline="true"
+        android:contentDescription="@string/actor_image" />
 
     <!-- Actor's Name -->
     <TextView
