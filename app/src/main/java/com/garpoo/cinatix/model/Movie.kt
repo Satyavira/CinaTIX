@@ -157,3 +157,8 @@ fun getGenreList(): GenreList {
         )
     )
 }
+
+fun getGenreNameById(genreId: Int): String {
+    val genre = getGenreList().genres.find { it.id == genreId }
+    return genre?.name ?: "Unknown" // Return "Unknown" if no match is found
+}
