@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp"
+    android:layout_margin="16dp"
     android:background="@drawable/search_bg"
     android:gravity="center_vertical">
 
