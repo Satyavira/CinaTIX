@@ -129,6 +129,7 @@
                 android:layout_marginTop="16dp"
                 app:tabIndicatorColor="@color/yellow"
                 app:tabSelectedTextColor="@color/black"
+                app:tabIndicatorFullWidth="true"
                 app:layout_constraintTop_toBottomOf="@id/movie_detail_card"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
