@@ -14,6 +14,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.garpoo.cinatix.databinding.ItemMoviePosterBinding
 import com.garpoo.cinatix.model.Movie
+import com.garpoo.cinatix.model.getGenreNameById
 
 class MoviePagerAdapter(
     private var movies: MutableList<Movie>,
@@ -36,14 +37,16 @@ class MoviePagerAdapter(
         fun bind(movie: Movie) {
             context?.let {
                 Glide.with(it)
-                    .load(movie.poster_path)
+                    .load("https://image.tmdb.org/t/p/w500".plus(movie.poster_path))
                     .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
                     .into(binding.moviePosterImage) // Load image into ImageView
             }
 
             // Set text data
             binding.movieTitle.text = movie.title
-            binding.movieGenre.text = movie.genre_ids[0].toString()
+            val firstGenreId = movie.genre_ids.firstOrNull() ?: 0
+            val genreName = getGenreNameById(firstGenreId)
+            binding.movieGenre.text = genreName
 
             // Show/hide movie information based on the current position
             if (adapterPosition == currentPosition) {
