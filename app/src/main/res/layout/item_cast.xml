@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:gravity="center">
+
+    <!-- Actor's Image -->
+    <ImageView
+        android:id="@+id/actor_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv_cast"
+        android:layout_marginBottom="4dp"
+        android:clipToOutline="true"
+        android:contentDescription="@string/actor_image" />
+
+    <!-- Actor's Name -->
+    <TextView
+        android:id="@+id/actor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/actor_image"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:gravity="center" />
+
+</LinearLayout>

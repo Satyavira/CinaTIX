@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".OnboardPageThreeActivity">
+    tools:context=".OnBoardingPageTwoActivity">
 
     <!-- Logo Image -->
     <ImageView
@@ -15,14 +15,15 @@
         android:layout_height="47dp"
         android:src="@drawable/ic_logo"
         app:layout_constraintTop_toTopOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+        app:layout_constraintStart_toStartOf="@id/guideline_start" />
 
     <!-- Welcome Image -->
     <ImageView
         android:id="@+id/welcomeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_on_boarding_page_three"
+        android:contentDescription="Welcome Image"
+        android:src="@drawable/ic_on_boarding_page_two"
         android:layout_marginTop="50dp"
         app:layout_constraintTop_toBottomOf="@+id/logoImage"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
@@ -32,7 +33,7 @@
         android:id="@+id/welcomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_three"
+        android:text="@string/welcome_two"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
@@ -45,10 +46,10 @@
         android:id="@+id/subTitle"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/subheading_three"
+        android:textAlignment="center"
+        android:text="@string/subheading_two"
         android:textSize="14sp"
         android:layout_marginTop="8dp"
-        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/welcomeTitle"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintEnd_toEndOf="@id/guideline_end" />
@@ -74,13 +75,13 @@
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_margin="4dp"
-            android:background="@drawable/shape_inactive_dot" /> <!-- Create drawable resource for active dot -->
+            android:background="@drawable/shape_active_dot" /> <!-- Create drawable resource for active dot -->
 
         <ImageView
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_margin="4dp"
-            android:background="@drawable/shape_active_dot" />
+            android:background="@drawable/shape_inactive_dot" />
     </LinearLayout>
 
     <!-- Skip TextView -->
@@ -94,7 +95,7 @@
         android:textColor="#000000"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"/>
+        app:layout_constraintStart_toStartOf="@id/guideline_start" />
 
     <!-- Next Button (Circular) -->
     <ImageButton
@@ -132,4 +133,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

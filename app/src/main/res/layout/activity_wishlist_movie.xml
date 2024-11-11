@@ -76,7 +76,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/sample_movie_image"
+                            android:src="@drawable/iv_movie"
                             android:contentDescription="Movie Image" />
 
                         <TextView
@@ -109,7 +109,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/sample_movie_image"
+                            android:src="@drawable/iv_movie"
                             android:contentDescription="Movie Image" />
 
                         <TextView
@@ -142,7 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/sample_movie_image"
+                            android:src="@drawable/iv_movie"
                             android:contentDescription="Movie Image" />
 
                         <TextView
