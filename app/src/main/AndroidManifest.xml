@@ -16,6 +16,12 @@
         android:theme="@style/Theme.CinaTIX"
         tools:targetApi="31">
         <activity
+            android:name=".OnBoardingPageTwoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OnBoardingPageOneActivity"
+            android:exported="false" />
+        <activity
             android:name=".MovieJadwalActivity"
             android:exported="false" />
         <activity
