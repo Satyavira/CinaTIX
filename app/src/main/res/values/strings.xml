@@ -22,6 +22,20 @@
     <string name="shopee_pay">ShopeePay</string>
     <string name="shopee_pay_cashback">Cashback s/d 10rb koin Shopee</string>
     <string name="ovo">OVO</string>
+    <string name="skip"></string>
+
+    <!-- On Boarding Page One Activity -->
+    <string name="welcome_one">Welcome to CinaTIX!</string>
+    <string name="subheading_one">Book tickets fast and easy with CinaTix. Get ready for the big screen!</string>
+
+    <!-- On Boarding Page Two Activity -->
+    <string name="welcome_two">Personalized Movie</string>
+    <string name="subheading_two">Get movie suggestions and release alerts with CinaTix. Never miss a must-watch!</string>
+
+    <!-- On Boarding Page Three Activity -->
+    <string name="welcome_three">Book Your Movie in Seconds</string>
+    <string name="subheading_three">Pick a film, choose a time, and book instantly with CinaTix.</string>
+
     <string name="tiket">Tiket</string>
     <string name="movie">Movie</string>
     <string name="judul_movie">Kuasa Gelap</string>
