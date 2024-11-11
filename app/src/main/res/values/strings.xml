@@ -36,6 +36,25 @@
     <string name="welcome_three">Book Your Movie in Seconds</string>
     <string name="subheading_three">Pick a film, choose a time, and book instantly with CinaTix.</string>
 
+    <string name="tiket">Tiket</string>
+    <string name="movie">Movie</string>
+    <string name="judul_movie">Kuasa Gelap</string>
+    <string name="show_ticket">Show this ticket at the entrance</string>
+    <string name="cinema">Cinema</string>
+    <string name="bioskop">DELI PARK XXI</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="movie_date">24 Okt 2024</string>
+    <string name="movie_time">16:30</string>
+    <string name="section">Section</string>
+    <string name="movie_section">4</string>
+    <string name="seat">Seat</string>
+    <string name="cost_title">Cost</string>
+    <string name="order_title">Order ID</string>
+    <string name="seat_movie">B5,B6,B7</string>
+    <string name="cost">Rp. 30.000</string>
+    <string name="order_id">10010012420</string>
+
     <!-- Welcome Activity -->
     <string name="welcome_text">SELAMAT DATANG DI CINATIX</string>
     <string name="descriptive_text">Yey! akunmu sudah aktif. Dapatkan tiket bioskop sekarang, dan eksplor aplikasi CINATIX untuk lebih banyak hiburan!</string>
