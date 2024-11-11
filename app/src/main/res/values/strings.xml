@@ -22,6 +22,24 @@
     <string name="shopee_pay">ShopeePay</string>
     <string name="shopee_pay_cashback">Cashback s/d 10rb koin Shopee</string>
     <string name="ovo">OVO</string>
+    <string name="tiket">Tiket</string>
+    <string name="movie">Movie</string>
+    <string name="judul_movie">Kuasa Gelap</string>
+    <string name="show_ticket">Show this ticket at the entrance</string>
+    <string name="cinema">Cinema</string>
+    <string name="bioskop">DELI PARK XXI</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="movie_date">24 Okt 2024</string>
+    <string name="movie_time">16:30</string>
+    <string name="section">Section</string>
+    <string name="movie_section">4</string>
+    <string name="seat">Seat</string>
+    <string name="cost_title">Cost</string>
+    <string name="order_title">Order ID</string>
+    <string name="seat_movie">B5,B6,B7</string>
+    <string name="cost">Rp. 30.000</string>
+    <string name="order_id">10010012420</string>
 
     <!-- Welcome Activity -->
     <string name="welcome_text">SELAMAT DATANG DI CINATIX</string>

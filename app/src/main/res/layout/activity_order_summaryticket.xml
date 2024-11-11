@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/putih"
+    tools:context=".OrderSummaryticketActivity">
+
+    <TextView
+        android:id="@+id/header_ticket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/tiket"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/container_tiket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/subtract"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_ticket"/>
+
+    <ImageView
+        android:id="@+id/movie_image"
+        android:layout_width="320dp"
+        android:layout_height="139.5dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/kuasa_gelap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_ticket"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="65dp"
+        android:backgroundTint="@color/biru"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/movie"
+        app:cornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_ticket"/>
+
+    <TextView
+        android:id="@+id/judul_film"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/judul_movie"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/movie_image"
+        android:textSize="20sp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_ticket"
+        app:layout_constraintTop_toBottomOf="@id/judul_film"
+        android:text="@string/show_ticket"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/abu"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="3dp"/>
+
+    <View
+        android:id="@+id/horizontal_line"
+        app:layout_constraintTop_toBottomOf="@id/show_ticket"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/abutipis"
+        android:layout_marginStart="66dp"
+        android:layout_marginEnd="66dp"/>
+
+    <TextView
+        android:id="@+id/cinema_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_line"
+        android:text="@string/cinema"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="66dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/abu"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/nama_bioskop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/cinema_header"
+        android:text="@string/bioskop"
+        android:textSize="14sp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="6dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/date_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nama_bioskop"
+        android:layout_marginStart="66dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="19dp"
+        android:textColor="@color/abu"/>
+
+    <TextView
+        android:id="@+id/time_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/cinema_header"
+        app:layout_constraintTop_toBottomOf="@id/nama_bioskop"
+        android:layout_marginStart="130dp"
+        android:text="@string/time"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/abu"
+        android:layout_marginTop="19dp"/>
+
+    <TextView
+        android:id="@+id/movie_date"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/date_header"
+        android:text="@string/movie_date"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="66dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginTop="6dp"/>
+    
+    <TextView
+        android:id="@+id/section_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/movie_date"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="66dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/abu"
+        android:text="@string/section"
+        android:layout_marginTop="19dp"/>
+
+    <TextView
+        android:id="@+id/section_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/section_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="66dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="@string/movie_section"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/seat_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/movie_date"
+        android:text="@string/seat"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintStart_toEndOf="@id/section_header"
+        android:layout_marginTop="19dp"
+        android:textColor="@color/abu"
+        android:layout_marginStart="130dp"/>
+
+    <TextView
+        android:id="@+id/seat_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/seat_header"
+        app:layout_constraintStart_toEndOf="@id/section_movie"
+        android:layout_marginStart="170dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="6dp"
+        android:text="@string/seat_movie"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/cinema_header"
+        app:layout_constraintTop_toBottomOf="@id/time_header"
+        android:layout_marginStart="130dp"
+        android:text="@string/movie_time"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/cost_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/section_movie"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/cost_title"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="19dp"
+        android:layout_marginStart="66dp"
+        android:textColor="@color/abu"/>
+
+    <TextView
+        android:id="@+id/cost_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cost_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="66dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="6dp"
+        android:text="@string/cost"/>
+
+    <TextView
+        android:id="@+id/order_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/seat_movie"
+        android:text="@string/order_title"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintStart_toEndOf="@id/section_header"
+        android:layout_marginTop="19dp"
+        android:textColor="@color/abu"
+        android:layout_marginStart="130dp"/>
+
+    <TextView
+        android:id="@+id/order_movie_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/order_header"
+        app:layout_constraintStart_toEndOf="@id/cost_movie"
+        android:layout_marginStart="109dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="6dp"
+        android:text="@string/order_id"/>
+
+    <View
+        android:id="@+id/garis_putus"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/cost_movie"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/garis_putus"/>
+
+
+    <!--    <com.google.android.material.divider.MaterialDivider-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/garis_putus"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/cost_movie"-->
+<!--        app:dividerColor="@color/black"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="64dp"-->
+<!--        android:layout_marginEnd="64dp"/>-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
