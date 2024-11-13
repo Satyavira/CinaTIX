@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CinaTIX"
         tools:targetApi="31">
         <activity
+            android:name=".AkanTayangActivity"
+            android:exported="false" />
+        <activity
             android:name=".model.SedangTayangActivity"
             android:exported="false" />
         <activity
