@@ -153,7 +153,6 @@
             app:layout_constraintStart_toEndOf="@+id/selectedSeats"
             app:layout_constraintHorizontal_bias="1"/>
 
-        <!-- Purchase Button -->
         <!-- Buy Ticket Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buy_ticket_button"
@@ -162,7 +161,6 @@
             android:text="BELI TIKET"
             android:textColor="@color/white"
             android:backgroundTint="@color/yellow"
-            android:layout_margin="16dp"
             android:textSize="16sp"
             app:cornerRadius="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
