@@ -5,13 +5,15 @@
     <string name="full_name">Full Name</string>
     <string name="your_pass">Your Password</string>
     <string name="lanjut">Lanjut</string>
+    <string name="sign_up">Sign Up</string>
     <string name="your_email">Your Email</string>
     <string name="create_pass">Create Your Password</string>
     <string name="new_pass">New Password</string>
     <string name="retype">Re-Type New Password</string>
     <string name="atleast">At Least 9 Characters, Containing A Letter And A Number</string>
     <string name="masuk">Masuk</string>
-    <string name="belum_punya_akun">Belum punya akun? Daftar Sekarang!</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar_sekarang">Daftar Sekarang!</string>
     <string name="metode">Metode Pembayaran</string>
     <string name="ewallet">E-WALLET</string>
     <string name="sebelum">Sebelum bertransaksi, pastikan metode pembayaran yang kamu pilih sudah tersedia di ponselmu ya!</string>
@@ -53,7 +55,7 @@
     <string name="order_title">Order ID</string>
     <string name="seat_movie">B5,B6,B7</string>
     <string name="cost">Rp. 30.000</string>
-    <string name="order_id">10010012420</string>
+    <string name="order_ticket">10010012420</string>
 
     <!-- Welcome Activity -->
     <string name="welcome_text">SELAMAT DATANG DI CINATIX</string>

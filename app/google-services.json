@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1028428269329",
+    "project_id": "cinatix-9e2ed",
+    "storage_bucket": "cinatix-9e2ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028428269329:android:2e3d16671aeb7d311a2eb0",
+        "android_client_info": {
+          "package_name": "com.garpoo.cinatix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAspceGW_4U2PK8qnZKbu_ImyRu2gX-Fu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

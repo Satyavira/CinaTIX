@@ -251,29 +251,16 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
         android:layout_marginTop="6dp"
-        android:text="@string/order_id"/>
+        android:text="@string/order_ticket"/>
 
-    <View
+    <ImageView
         android:id="@+id/garis_putus"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="5dp"
         app:layout_constraintTop_toBottomOf="@id/cost_movie"
         android:layout_marginTop="20dp"
         android:layout_marginStart="64dp"
+        android:elevation="100dp"
         android:layout_marginEnd="64dp"
-        android:background="@drawable/garis_putus"/>
-
-
-    <!--    <com.google.android.material.divider.MaterialDivider-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/garis_putus"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/cost_movie"-->
-<!--        app:dividerColor="@color/black"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginStart="64dp"-->
-<!--        android:layout_marginEnd="64dp"/>-->
-
-
-
+        android:src="@drawable/garis_putus"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
