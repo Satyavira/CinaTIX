@@ -24,7 +24,7 @@
     <string name="shopee_pay">ShopeePay</string>
     <string name="shopee_pay_cashback">Cashback s/d 10rb koin Shopee</string>
     <string name="ovo">OVO</string>
-    <string name="skip"></string>
+    <string name="skip">Skip</string>
 
     <!-- On Boarding Page One Activity -->
     <string name="welcome_one">Welcome to CinaTIX!</string>
@@ -76,7 +76,7 @@
     <string name="watch_trailer">Watch Trailer</string>
     <string name="sinopsis">SINOPSIS</string>
     <string name="jadwal">JADWAL</string>
-    <string name="sinopsis_text">After the death of his mother and sister in a tragic accident, Thomas (Jerome Kurnia) intends to resign as Father. However, he was given the final task of helping the exorcist Father, Rendra (Lukman Sardi), whose health wa...</string>
+    <string name="sinopsis_text">After the death of his mother and sister in a tragic accident, Thomas (Jerome Kurnia) intends to resign as Father. However, he was given the final task of helping the exorcist Father, Rendra (Lukman Sardi), whose health wa…</string>
     <string name="cast_label">Pemeran</string>
     <string name="beli_tiket">BELI TIKET</string>
 
