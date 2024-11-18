@@ -1,6 +1,6 @@
 package com.garpoo.cinatix.model
 
-data class MovieResponse(
+data class UpcomingMoviesResponse(
     val dates: Dates,
     val page: Int,
     val results: List<Movie>,
@@ -30,7 +30,7 @@ data class Movie(
     val vote_count: Int
 )
 
-data class MovieCast(
+data class CreditsResponse(
     val id: Int,
     val cast: List<CastMember>
 )
@@ -50,7 +50,7 @@ data class CastMember(
     val order: Int
 )
 
-data class MovieDetail(
+data class MovieDetailsResponse(
     val adult: Boolean,
     val backdrop_path: String?,
     val belongs_to_collection: BelongsToCollection?,
@@ -131,6 +131,8 @@ data class Video(
     val published_at: String,
     val id: String
 )
+
+val tmdb = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjQ4MmM2ZWE5ZTlkOWFlYzY5NjhiOTVkZDZlNDBkNSIsIm5iZiI6MTczMTg1ODkwNC4zNDczOTMsInN1YiI6IjY3MjlkOGE4MDZkYzg4NTk2MzI0MDJhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.URW9VWtRtPPxWgaHRKFRPKJIfHJNw7SWNoOeFXQTu8E"
 
 fun getGenreList(): GenreList {
     return GenreList(
