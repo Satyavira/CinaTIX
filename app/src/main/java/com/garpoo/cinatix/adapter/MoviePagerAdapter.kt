@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -17,23 +16,20 @@ import com.garpoo.cinatix.model.Movie
 import com.garpoo.cinatix.model.getGenreNameById
 
 class MoviePagerAdapter(
-    private var movies: MutableList<Movie>,
-    private val viewPager2: ViewPager2
+    private var movies: List<Movie>,
 ) : RecyclerView.Adapter<MoviePagerAdapter.MovieViewHolder>() {
 
     private var context: Context? = null
 
     // Runnable to duplicate items for infinite scrolling
-    private val runnable = Runnable {
-        movies.addAll(movies) // Duplicate items for infinite scrolling
-        notifyDataSetChanged() // Refresh adapter to display new items
-    }
+//    private val runnable = Runnable {
+//        movies.addAll(movies) // Duplicate items for infinite scrolling
+//        notifyDataSetChanged() // Refresh adapter to display new items
+//    }
 
-    // ViewHolder class with ViewBinding for `item_movie_poster`
     inner class MovieViewHolder(private val binding: ItemMoviePosterBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        // Bind method to load data into views
         fun bind(movie: Movie) {
             context?.let {
                 Glide.with(it)
@@ -85,4 +81,9 @@ class MoviePagerAdapter(
     }
 
     override fun getItemCount(): Int = movies.size
+
+    fun updateMovies(newMovies: List<Movie>) {
+        movies = newMovies
+        notifyDataSetChanged()
+    }
 }
