@@ -19,9 +19,6 @@
             android:name=".DaftarTransaksiActivity"
             android:exported="false" />
         <activity
-            android:name=".AkanTayangActivity"
-            android:exported="false" />
-        <activity
             android:name=".SedangTayangActivity"
             android:exported="false" />
         <activity
