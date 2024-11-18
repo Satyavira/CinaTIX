@@ -1,11 +1,14 @@
 package com.garpoo.cinatix
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +20,11 @@ import com.garpoo.cinatix.adapter.MoviePagerAdapter
 import com.garpoo.cinatix.adapter.MovieRecyclerAdapter
 import com.garpoo.cinatix.databinding.ActivityHomeBinding
 import com.garpoo.cinatix.model.Movie
+import com.garpoo.cinatix.model.UpcomingMoviesResponse
+import com.garpoo.cinatix.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import kotlin.math.abs
 
 class HomeActivity : AppCompatActivity() {
@@ -125,12 +133,70 @@ class HomeActivity : AppCompatActivity() {
         viewPager2 = binding.viewPager2
         viewPagerIndicator = binding.viewPagerIndicator
         recyclerViewComingSoon = binding.recyclerViewComingSoon
-        movieRecyclerAdapter = MovieRecyclerAdapter(movies)
-        setupViewPager(movies)
-        setupIndicators(movies.size)
-        setCurrentIndicator(0)
-        recyclerViewComingSoon.adapter = movieRecyclerAdapter
-        recyclerViewComingSoon.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val nowPlayingCall = ApiClient.movieApiService.getNowPlayingMovies()
+        nowPlayingCall.enqueue(object : Callback<UpcomingMoviesResponse> {
+            override fun onResponse(
+                call: Call<UpcomingMoviesResponse>,
+                response: Response<UpcomingMoviesResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val upcomingMovies = response.body()?.results
+                    runOnUiThread {
+                        binding.progressBarNowPlaying.visibility = View.GONE
+                        if (upcomingMovies != null) {
+                            setupViewPager(upcomingMovies)
+                            setupIndicators(upcomingMovies.size)
+                            setCurrentIndicator(0)
+                            binding.tvNowPlayingSeeAll.setOnClickListener {
+                                val intent = Intent(this@HomeActivity, SedangTayangActivity::class.java)
+                                intent.putExtra("SELECTED_TAB", 0)
+                                startActivity(intent)
+                            }
+                        }
+                    }
+                } else {
+                    Toast.makeText(this@HomeActivity, "Error: ${response.code()}, ${response.errorBody()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<UpcomingMoviesResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@HomeActivity, "Failure: ${t.printStackTrace()}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        val upcomingCall = ApiClient.movieApiService.getUpcomingMovies()
+        upcomingCall.enqueue(object : Callback<UpcomingMoviesResponse> {
+            override fun onResponse(
+                call: Call<UpcomingMoviesResponse>,
+                response: Response<UpcomingMoviesResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val upcomingMovies = response.body()?.results
+                    runOnUiThread {
+                        binding.progressBarComingSoon.visibility = View.GONE
+                        if (upcomingMovies != null) {
+                            movieRecyclerAdapter = MovieRecyclerAdapter(upcomingMovies)
+                            recyclerViewComingSoon.adapter = movieRecyclerAdapter
+                            recyclerViewComingSoon.layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
+                            binding.tvComingSoonSeeAll.setOnClickListener {
+                                val intent = Intent(this@HomeActivity, SedangTayangActivity::class.java)
+                                intent.putExtra("SELECTED_TAB", 1)
+                                startActivity(intent)
+                            }
+                        }
+                    }
+                } else {
+                    Toast.makeText(this@HomeActivity, "Error: ${response.code()}, ${response.errorBody()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<UpcomingMoviesResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@HomeActivity, "Failure: ${t.printStackTrace()}", Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
         // Firebase code is commented out for now
@@ -140,8 +206,8 @@ class HomeActivity : AppCompatActivity() {
         */
     }
 
-    private fun setupViewPager(movies: MutableList<Movie>) {
-        adapter = MoviePagerAdapter(movies, viewPager2)
+    private fun setupViewPager(movies: List<Movie>?) {
+        adapter = movies?.let { MoviePagerAdapter(it) }!!
         viewPager2.adapter = adapter
 
         binding.viewPager2.clipToPadding = false
