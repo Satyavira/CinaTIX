@@ -18,16 +18,16 @@ import java.text.DecimalFormat
 import kotlin.math.nextUp
 
 class MovieRecyclerAdapter(
-    private var movies: MutableList<Movie>
+    private var movies: List<Movie>
 ) : RecyclerView.Adapter<MovieRecyclerAdapter.MovieViewHolder>() {
 
     private var context: Context? = null
 
     private val handler = Handler(Looper.getMainLooper())
-    private val runnable = Runnable {
-        movies.addAll(movies)
-        notifyDataSetChanged()
-    }
+//    private val runnable = Runnable {
+//        movies.addAll(movies)
+//        notifyDataSetChanged()
+//    }
 
     // ViewHolder class with ViewBinding
     inner class MovieViewHolder(private val binding: ItemMovieCardBinding) :
