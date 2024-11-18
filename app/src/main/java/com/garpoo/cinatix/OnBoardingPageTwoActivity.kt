@@ -12,6 +12,7 @@ class OnBoardingPageTwoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        binding = ActivityOnBoardingPageTwoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.nextButton.setOnClickListener {
             val intent = Intent(this, OnboardPageThreeActivity::class.java)
