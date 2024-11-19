@@ -16,22 +16,13 @@
         android:theme="@style/Theme.CinaTIX"
         tools:targetApi="31">
         <activity
-            android:name=".DaftarTransaksiActivity"
-            android:exported="false" />
-        <activity
             android:name=".SedangTayangActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SeatSelecionActivity"
             android:exported="false" />
         <activity
             android:name=".OnBoardingPageTwoActivity"
             android:exported="false" />
         <activity
             android:name=".OnBoardingPageOneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MovieJadwalActivity"
             android:exported="false" />
         <activity
             android:name=".MovieSinopsisActivity"
@@ -43,23 +34,10 @@
             android:name=".SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderSummary"
-            android:exported="false" />
-        <activity
             android:name=".OnboardPageThreeActivity"
             android:exported="false" />
         <activity
-            android:name=".BioskopActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreatePassActivity"
-            android:exported="false" />
-        <activity
             android:name=".HomeActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false" />
-        <activity
-            android:name=".TicketActivity"
             android:exported="false" />
         <activity
             android:name=".WishlistMovieActivity"
