@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@color/putih"
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".OnboardPageThreeActivity">
