@@ -65,7 +65,6 @@
         android:id="@+id/lihat_film_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/yellow"
@@ -73,23 +72,12 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:cornerRadius="24dp"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintBottom_toTopOf="@id/go_to_home_text"/>
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
+        tools:layout_editor_absoluteY="627dp" />
 
     <!-- Pergi Ke Beranda Text -->
-    <TextView
-        android:id="@+id/go_to_home_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/pergi_beranda"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
