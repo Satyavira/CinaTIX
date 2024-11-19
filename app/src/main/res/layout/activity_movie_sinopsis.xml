@@ -23,10 +23,10 @@
         android:id="@+id/scrollable_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buy_ticket_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -106,12 +106,14 @@
                         android:layout_marginTop="8dp">
 
                         <ImageView
+                            android:id="@+id/img_producer"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/iv_director"
                             android:layout_marginEnd="8dp" />
 
                         <TextView
+                            android:id="@+id/nama_producer"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -128,22 +130,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:tabIndicatorColor="@color/yellow"
-                app:tabSelectedTextColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/movie_detail_card"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sinopsis" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/jadwal" />
-            </com.google.android.material.tabs.TabLayout>
+                app:layout_constraintTop_toBottomOf="@id/movie_detail_card"
+                app:tabIndicatorColor="@color/yellow"
+                app:tabSelectedTextColor="@color/black" />
 
             <!-- Synopsis Text -->
             <TextView
@@ -185,20 +176,5 @@
                 tools:listitem="@layout/item_cast" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <!-- Buy Ticket Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buy_ticket_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="BELI TIKET"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/yellow"
-        android:layout_margin="16dp"
-        android:textSize="16sp"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
