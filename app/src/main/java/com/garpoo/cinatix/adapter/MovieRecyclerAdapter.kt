@@ -18,7 +18,8 @@ import java.text.DecimalFormat
 import kotlin.math.nextUp
 
 class MovieRecyclerAdapter(
-    private var movies: List<Movie>
+    private var movies: List<Movie>,
+    private val movieToSipnosis: (Int) -> Unit
 ) : RecyclerView.Adapter<MovieRecyclerAdapter.MovieViewHolder>() {
 
     private var context: Context? = null
@@ -35,6 +36,9 @@ class MovieRecyclerAdapter(
 
         // Bind method to load data into views
         fun bind(movie: Movie) {
+            binding.root.setOnClickListener {
+                movieToSipnosis.invoke(movie.id)
+            }
             context?.let {
                 // Load movie poster using Glide with rounded corners
                 Glide.with(it)

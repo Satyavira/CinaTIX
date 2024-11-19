@@ -17,6 +17,7 @@ import com.garpoo.cinatix.model.getGenreNameById
 
 class MoviePagerAdapter(
     private var movies: List<Movie>,
+    private val movieToSipnosis: (Int) -> Unit
 ) : RecyclerView.Adapter<MoviePagerAdapter.MovieViewHolder>() {
 
     private var context: Context? = null
@@ -31,6 +32,9 @@ class MoviePagerAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {
+            binding.root.setOnClickListener {
+                movieToSipnosis.invoke(movie.id)
+            }
             context?.let {
                 Glide.with(it)
                     .load("https://image.tmdb.org/t/p/w500".plus(movie.poster_path))

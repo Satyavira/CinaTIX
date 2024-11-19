@@ -1,8 +1,10 @@
 package com.garpoo.cinatix
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.garpoo.cinatix.adapter.MovieItemRecyclerAdapter
@@ -22,11 +24,12 @@ class SedangTayangActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivitySedangTayangBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Initialize RecyclerView
-        movieItemRecyclerAdapter = MovieItemRecyclerAdapter(listOf())
+        movieItemRecyclerAdapter = MovieItemRecyclerAdapter(listOf()) { movie -> movieToSipnosis(movie)}
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(this@SedangTayangActivity, 2)
             adapter = movieItemRecyclerAdapter
@@ -124,6 +127,12 @@ class SedangTayangActivity : AppCompatActivity() {
     // Function to populate the RecyclerView
     private fun populateRecyclerView(movies: List<Movie>) {
         movieItemRecyclerAdapter.updateMovies(movies)
+    }
+
+    private fun movieToSipnosis(movieId: Int) {
+        val intent = Intent(this, MovieSinopsisActivity::class.java)
+        intent.putExtra("movieId", movieId)
+        startActivity(intent)
     }
 }
 

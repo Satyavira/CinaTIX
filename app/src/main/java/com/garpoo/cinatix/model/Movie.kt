@@ -32,7 +32,8 @@ data class Movie(
 
 data class CreditsResponse(
     val id: Int,
-    val cast: List<CastMember>
+    val cast: List<CastMember>,
+    val crew: List<CrewMember>
 )
 
 data class CastMember(
@@ -48,6 +49,20 @@ data class CastMember(
     val character: String,
     val credit_id: String,
     val order: Int
+)
+
+data class CrewMember(
+    val adult: Boolean,            // Indicates if the crew member is adult
+    val gender: Int,               // Gender of the crew member (0 = Unknown, 1 = Female, 2 = Male)
+    val id: Int,                   // Unique identifier for the crew member
+    val known_for_department: String, // Department in which the crew member is known (e.g., "Writing")
+    val name: String,              // Name of the crew member
+    val original_name: String,     // Original name of the crew member (might be the same as 'name')
+    val popularity: Double,        // Popularity rating of the crew member
+    val profile_path: String?,     // Path to the crew member's profile image (nullable)
+    val credit_id: String,         // Unique identifier for the crew member's credit in the movie
+    val department: String,        // The department the crew member worked in (e.g., "Writing")
+    val job: String                // The specific job they did (e.g., "Characters")
 )
 
 data class MovieDetailsResponse(
