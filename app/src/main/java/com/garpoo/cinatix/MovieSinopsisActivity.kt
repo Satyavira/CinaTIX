@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -20,7 +18,6 @@ import com.google.android.material.tabs.TabLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class MovieSinopsisActivity : AppCompatActivity() {
 
@@ -149,6 +146,10 @@ class MovieSinopsisActivity : AppCompatActivity() {
             .load("https://image.tmdb.org/t/p/w500${producer[0].profile_path}")
             .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
             .into(binding.imgProducer)
-        binding.namaProducer.text = producer[0].job + "\n" + producer[0].name
+        binding.namaProducer.text = buildString {
+            append(producer[0].job)
+            append("\n")
+            append(producer[0].name)
+        }
     }
 }
