@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,6 +43,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -141,7 +143,7 @@ class HomeActivity : AppCompatActivity() {
                 response: Response<UpcomingMoviesResponse>
             ) {
                 if (response.isSuccessful) {
-                    val upcomingMovies = response.body()?.results
+                    val upcomingMovies = response.body()?.results?.subList(0, 8)
                     runOnUiThread {
                         binding.progressBarNowPlaying.visibility = View.GONE
                         if (upcomingMovies != null) {
@@ -177,7 +179,7 @@ class HomeActivity : AppCompatActivity() {
                     runOnUiThread {
                         binding.progressBarComingSoon.visibility = View.GONE
                         if (upcomingMovies != null) {
-                            movieRecyclerAdapter = MovieRecyclerAdapter(upcomingMovies)
+                            movieRecyclerAdapter = MovieRecyclerAdapter(upcomingMovies) { movie -> movieToSipnosis(movie)}
                             recyclerViewComingSoon.adapter = movieRecyclerAdapter
                             recyclerViewComingSoon.layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
                             binding.tvComingSoonSeeAll.setOnClickListener {
@@ -207,7 +209,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupViewPager(movies: List<Movie>?) {
-        adapter = movies?.let { MoviePagerAdapter(it) }!!
+        adapter = movies?.let { MoviePagerAdapter(it) { movie -> movieToSipnosis(movie)} }!!
         viewPager2.adapter = adapter
 
         binding.viewPager2.clipToPadding = false
@@ -290,6 +292,12 @@ class HomeActivity : AppCompatActivity() {
                 )
             }
         }
+    }
+
+    private fun movieToSipnosis(movieId: Int) {
+        val intent = Intent(this, MovieSinopsisActivity::class.java)
+        intent.putExtra("movieId", movieId)
+        startActivity(intent)
     }
 
     // Remove callbacks on pause
