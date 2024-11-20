@@ -52,10 +52,14 @@ class MovieRecyclerAdapter(
             val firstGenreId = movie.genre_ids.firstOrNull() ?: 0
             val genreName = getGenreNameById(firstGenreId)
             binding.movieGenre.text = genreName
-            val rating = (movie.vote_average / 2).nextUp()
+            val rating: Double = if (movie.vote_average != 0.0) {
+                (movie.vote_average / 2).nextUp()
+            } else {
+                0.0
+            }
             binding.ratingText.text = context?.getString(
                 R.string.of_5,
-                DecimalFormat("#.##").format(rating)
+                DecimalFormat("#.#").format(rating)
             ) ?: "0 of 5"
 
             // Set star ratings dynamically based on movie rating
