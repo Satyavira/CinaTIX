@@ -1,7 +1,7 @@
 package com.garpoo.cinatix
-
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +14,7 @@ import com.garpoo.cinatix.adapter.CastAdapter
 import com.garpoo.cinatix.databinding.ActivityMovieSinopsisBinding
 import com.garpoo.cinatix.model.CreditsResponse
 import com.garpoo.cinatix.model.MovieDetailsResponse
+import com.garpoo.cinatix.model.MovieDetailsWithCreditsAndVideosResponse
 import com.garpoo.cinatix.network.ApiClient
 import com.garpoo.cinatix.network.MovieApiService
 import com.google.android.material.tabs.TabLayout
@@ -62,7 +63,6 @@ class MovieSinopsisActivity : AppCompatActivity() {
             }
         })
 
-        // Initialize Retrofit
         movieApiService = ApiClient.movieApiService
 
         // Set up the UI
@@ -86,11 +86,11 @@ class MovieSinopsisActivity : AppCompatActivity() {
 
     private fun fetchMovieDetails(movieId: Int) {
         // Fetch movie details from the API
-        val movieDetailsCall = movieApiService.getMovieDetails(movieId)
-        movieDetailsCall.enqueue(object : Callback<MovieDetailsResponse> {
+        val movieDetailsCall = movieApiService.getMovieDetailsWithCreditsAndVideos(movieId)
+        movieDetailsCall.enqueue(object : Callback<MovieDetailsWithCreditsAndVideosResponse> {
             override fun onResponse(
-                call: Call<MovieDetailsResponse>,
-                response: Response<MovieDetailsResponse>
+                call: Call<MovieDetailsWithCreditsAndVideosResponse>,
+                response: Response<MovieDetailsWithCreditsAndVideosResponse>
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val movieDetails = response.body()!!
@@ -100,51 +100,52 @@ class MovieSinopsisActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<MovieDetailsResponse>, t: Throwable) {
+            override fun onFailure(call: Call<MovieDetailsWithCreditsAndVideosResponse>, t: Throwable) {
                 Toast.makeText(this@MovieSinopsisActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
 
         // Fetch movie credits (cast) from the API
-        val creditsCall = movieApiService.getMovieCredits(movieId)
-        creditsCall.enqueue(object : Callback<CreditsResponse> {
-            override fun onResponse(
-                call: Call<CreditsResponse>,
-                response: Response<CreditsResponse>
-            ) {
-                if (response.isSuccessful && response.body() != null) {
-                    val credits = response.body()!!
-                    updateMovieCreditsUI(credits)
-                } else {
-                    Toast.makeText(this@MovieSinopsisActivity, "Failed to load movie credits", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<CreditsResponse>, t: Throwable) {
-                Toast.makeText(this@MovieSinopsisActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
+//        val creditsCall = movieApiService.getMovieCredits(movieId)
+//        creditsCall.enqueue(object : Callback<CreditsResponse> {
+//            override fun onResponse(
+//                call: Call<CreditsResponse>,
+//                response: Response<CreditsResponse>
+//            ) {
+//                if (response.isSuccessful && response.body() != null) {
+//                    val credits = response.body()!!
+//                    updateMovieCreditsUI(credits)
+//                } else {
+//                    Toast.makeText(this@MovieSinopsisActivity, "Failed to load movie credits", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<CreditsResponse>, t: Throwable) {
+//                Toast.makeText(this@MovieSinopsisActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+//            }
+//        })
     }
 
-    private fun updateMovieDetailsUI(movieDetails: MovieDetailsResponse) {
+    private fun updateMovieDetailsUI(movieDetailsWithCreditsAndVideos: MovieDetailsWithCreditsAndVideosResponse) {
         // Update movie title
-        binding.movieTitle.text = movieDetails.title
+        binding.movieTitle.text = movieDetailsWithCreditsAndVideos.title
 
         // Set movie image (backdrop)
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}")
+            .load("https://image.tmdb.org/t/p/w1280${movieDetailsWithCreditsAndVideos.backdrop_path}")
             .apply(RequestOptions().centerCrop())
             .into(binding.movieImage)
 
         // Update the description and other movie details
-        binding.synopsisText.text = movieDetails.overview
+        binding.synopsisText.text = movieDetailsWithCreditsAndVideos.overview
 
         // Update genres, year, duration, etc.
-        val genreNames = movieDetails.genres.joinToString(", ") { it.name }
-        val year = movieDetails.release_date.split("-")[0] // Extract year
-        val runtime = movieDetails.runtime
+        val genreNames = movieDetailsWithCreditsAndVideos.genres.joinToString(", ") { it.name }
+        val year = movieDetailsWithCreditsAndVideos.release_date.split("-")[0] // Extract year
+        val runtime = movieDetailsWithCreditsAndVideos.runtime
         binding.deskripsiFilm.text = getString(R.string.deskripsiFilm, year, genreNames, runtime)
 
+        updateMovieCreditsUI(movieDetailsWithCreditsAndVideos.credits)
         // You can update other UI elements like IMDb, budget, revenue, etc. here
     }
 
@@ -242,20 +243,34 @@ class MovieSinopsisActivity : AppCompatActivity() {
 
     private fun updateMovieCreditsUI(credits: CreditsResponse) {
         // Populate the RecyclerView with cast information
-        val castAdapter = CastAdapter(credits.cast)
-        binding.castRecyclerView.adapter = castAdapter
+        if (credits.cast.isNotEmpty()) {
+            val castAdapter = CastAdapter(credits.cast)
+            binding.castRecyclerView.adapter = castAdapter
+        } else {
+            binding.castLabel.visibility = View.GONE
+            binding.castRecyclerView.visibility = View.GONE
+        }
         val producer = credits.crew.filter {
             crew ->
             crew.job == "Producer"
         }
-        Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500${producer[0].profile_path}")
-            .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
-            .into(binding.imgProducer)
-        binding.namaProducer.text = buildString {
-            append(producer[0].job)
-            append("\n")
-            append(producer[0].name)
+        if (producer.isNotEmpty()) {
+            if (producer.first().profile_path != null) {
+                Glide.with(this)
+                    .load("https://image.tmdb.org/t/p/w500${producer[0].profile_path}")
+                    .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
+                    .into(binding.imgProducer)
+            } else {
+                binding.imgProducer.visibility = View.GONE
+            }
+            binding.namaProducer.text = buildString {
+                append(producer[0].job)
+                append("\n")
+                append(producer[0].name)
+            }
+        } else {
+            binding.namaProducer.visibility = View.GONE
+            binding.imgProducer.visibility = View.GONE
         }
     }
 }

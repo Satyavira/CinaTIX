@@ -59,7 +59,7 @@ class MovieItemRecyclerAdapter(
             }
             binding.ratingText.text = context?.getString(
                 R.string.of_5,
-                DecimalFormat("#.##").format(rating)
+                DecimalFormat("#.#").format(rating)
             ) ?: "0 of 5"
 
             // Set star ratings dynamically based on movie rating
