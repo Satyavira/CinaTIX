@@ -80,10 +80,11 @@
                             android:textSize="18sp"
                             android:fontFamily="sans-serif-medium" />
 
-                        <ImageView
-                            android:id="@+id/favorite_icon"
+                        <ImageButton
+                            android:id="@+id/btnFavorite"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
+                            android:background="@android:color/transparent"
                             android:src="@drawable/ic_favorite" />
                     </LinearLayout>
 
@@ -131,6 +132,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/putih"
+                android:elevation="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/movie_detail_card"
                 app:tabIndicatorColor="@color/yellow"
