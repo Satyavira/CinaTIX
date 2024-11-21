@@ -1,10 +1,11 @@
 package com.garpoo.cinatix
-
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -17,12 +18,15 @@ import com.garpoo.cinatix.model.MovieDetailsWithCreditsAndVideosResponse
 import com.garpoo.cinatix.network.ApiClient
 import com.garpoo.cinatix.network.MovieApiService
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MovieSinopsisActivity : AppCompatActivity() {
 
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var movieApiService: MovieApiService // Retrofit API service
     private var movieId: Int = -1 // The movie ID passed from the previous activity
     private lateinit var binding: ActivityMovieSinopsisBinding // View binding for your layout
@@ -31,7 +35,11 @@ class MovieSinopsisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMovieSinopsisBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
+
+        // init firebase auth
+        firebaseAuth = FirebaseAuth.getInstance()
 
         // Get the movieId passed from the previous activity
         movieId = intent.getIntExtra("movieId", -1)
@@ -62,6 +70,11 @@ class MovieSinopsisActivity : AppCompatActivity() {
 
         // Fetch movie details and credits
         fetchMovieDetails(movieId)
+
+        checkIsFavorite()
+        binding.btnFavorite.setOnClickListener {
+            toggleFavorite()
+        }
     }
 
     private fun setupUI() {
@@ -135,6 +148,98 @@ class MovieSinopsisActivity : AppCompatActivity() {
         updateMovieCreditsUI(movieDetailsWithCreditsAndVideos.credits)
         // You can update other UI elements like IMDb, budget, revenue, etc. here
     }
+
+    private var isFavorite = false
+
+    private fun toggleFavorite() {
+        binding.btnFavorite.isEnabled = false
+        val userId = firebaseAuth.currentUser?.uid
+        if (userId == null) {
+            Toast.makeText(this, "You need to log in to add favorites", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (isFavorite) {
+            removeFromFavorite(userId)
+        } else {
+            addToFavorite(userId)
+        }
+        binding.btnFavorite.isEnabled = true
+    }
+
+    private fun addToFavorite(userId: String) {
+        val timestamp = System.currentTimeMillis()
+        val favoriteMap = hashMapOf(
+            "movieId" to movieId.toString(),
+            "userId" to userId,
+            "isFavorite" to true,  // Default value when adding a favorite
+            "timestamp" to timestamp
+        )
+
+        val documentId = "$userId-$movieId"
+        val favoriteRef = FirebaseFirestore.getInstance().collection("Favorites").document(documentId)
+
+        favoriteRef.set(favoriteMap)
+            .addOnSuccessListener {
+                isFavorite = true
+                updateFavoriteButton()
+                Toast.makeText(this, "Movie successfully added to favorites", Toast.LENGTH_SHORT).show()
+                Log.d("Firestore", "Favorite added")
+            }
+            .addOnFailureListener { e ->
+                Log.w("Firestore", "Error adding favorite", e)
+            }
+    }
+
+    private fun removeFromFavorite(userId: String) {
+        val documentId = "$userId-$movieId"
+        val favoriteRef = FirebaseFirestore.getInstance().collection("Favorites").document(documentId)
+
+        favoriteRef.delete()
+            .addOnSuccessListener {
+                isFavorite = false
+                updateFavoriteButton()
+                Toast.makeText(this, "Movie successfully removed from favorites", Toast.LENGTH_SHORT).show()
+                Log.d("Firestore", "Favorite removed")
+            }
+            .addOnFailureListener { e ->
+                Log.w("Firestore", "Error deleting favorite", e)
+            }
+    }
+
+    private fun checkIsFavorite() {
+        val userId = firebaseAuth.currentUser?.uid
+        if (userId != null) {
+            val favoriteRef = FirebaseFirestore.getInstance().collection("Favorites")
+            favoriteRef.whereEqualTo("userId", userId).whereEqualTo("movieId", movieId.toString())
+                .get()
+                .addOnSuccessListener { snapshot ->
+                    isFavorite = !snapshot.isEmpty
+                    updateFavoriteButton()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            isFavorite = false
+            updateFavoriteButton()
+        }
+    }
+
+
+    private fun updateFavoriteButton() {
+        val icon = R.drawable.ic_favorite // Ikon tombol favorit
+        binding.btnFavorite.setImageResource(icon)
+
+        val color = if (isFavorite) {
+            ContextCompat.getColor(this, R.color.red)
+        } else {
+            ContextCompat.getColor(this, R.color.gray)
+        }
+        binding.btnFavorite.setColorFilter(color)
+    }
+
+
 
     private fun updateMovieCreditsUI(credits: CreditsResponse) {
         // Populate the RecyclerView with cast information
