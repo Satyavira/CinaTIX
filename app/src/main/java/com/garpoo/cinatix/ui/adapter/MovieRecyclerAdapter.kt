@@ -1,4 +1,4 @@
-package com.garpoo.cinatix.adapter
+package com.garpoo.cinatix.ui.adapter
 
 import android.content.Context
 import android.os.Handler
@@ -11,16 +11,16 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.garpoo.cinatix.R
-import com.garpoo.cinatix.databinding.ItemFilmBinding
-import com.garpoo.cinatix.model.Movie
-import com.garpoo.cinatix.model.getGenreNameById
+import com.garpoo.cinatix.databinding.ItemMovieCardBinding
+import com.garpoo.cinatix.data.api.Movie
+import com.garpoo.cinatix.data.api.getGenreNameById
 import java.text.DecimalFormat
 import kotlin.math.nextUp
 
-class MovieItemRecyclerAdapter(
+class MovieRecyclerAdapter(
     private var movies: List<Movie>,
     private val movieToSipnosis: (Int) -> Unit
-) : RecyclerView.Adapter<MovieItemRecyclerAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<MovieRecyclerAdapter.MovieViewHolder>() {
 
     private var context: Context? = null
 
@@ -31,7 +31,7 @@ class MovieItemRecyclerAdapter(
 //    }
 
     // ViewHolder class with ViewBinding
-    inner class MovieViewHolder(private val binding: ItemFilmBinding) :
+    inner class MovieViewHolder(private val binding: ItemMovieCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         // Bind method to load data into views
@@ -44,7 +44,7 @@ class MovieItemRecyclerAdapter(
                 Glide.with(it)
                     .load("https://image.tmdb.org/t/p/w500".plus(movie.poster_path))
                     .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
-                    .into(binding.moviePoster)
+                    .into(binding.moviePosterImage)
             }
 
             // Set text data
@@ -76,7 +76,7 @@ class MovieItemRecyclerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         context = parent.context
-        val binding = ItemFilmBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = ItemMovieCardBinding.inflate(LayoutInflater.from(context), parent, false)
         return MovieViewHolder(binding)
     }
 
@@ -85,9 +85,4 @@ class MovieItemRecyclerAdapter(
     }
 
     override fun getItemCount(): Int = movies.size
-
-    fun updateMovies(newMovies: List<Movie>) {
-        movies = newMovies
-        notifyDataSetChanged()
-    }
 }

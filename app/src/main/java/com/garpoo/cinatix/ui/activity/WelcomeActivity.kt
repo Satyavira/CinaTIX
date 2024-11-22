@@ -1,4 +1,4 @@
-package com.garpoo.cinatix
+package com.garpoo.cinatix.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -19,6 +19,11 @@ class WelcomeActivity : AppCompatActivity() {
         binding.lihatFilmButton.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 }

@@ -1,11 +1,12 @@
-package com.garpoo.cinatix
+package com.garpoo.cinatix.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.garpoo.cinatix.adapter.OnboardingPagerAdapter
+import com.garpoo.cinatix.R
+import com.garpoo.cinatix.ui.adapter.OnboardingPagerAdapter
 import com.garpoo.cinatix.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.garpoo.cinatix
+package com.garpoo.cinatix.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -19,12 +19,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.garpoo.cinatix.adapter.MoviePagerAdapter
-import com.garpoo.cinatix.adapter.MovieRecyclerAdapter
+import com.garpoo.cinatix.R
+import com.garpoo.cinatix.ui.adapter.MoviePagerAdapter
+import com.garpoo.cinatix.ui.adapter.MovieRecyclerAdapter
 import com.garpoo.cinatix.databinding.ActivityHomeBinding
-import com.garpoo.cinatix.model.Movie
-import com.garpoo.cinatix.model.UpcomingMoviesResponse
-import com.garpoo.cinatix.network.ApiClient
+import com.garpoo.cinatix.data.api.Movie
+import com.garpoo.cinatix.data.api.UpcomingMoviesResponse
+import com.garpoo.cinatix.data.api.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -204,7 +205,7 @@ class HomeActivity : AppCompatActivity() {
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 

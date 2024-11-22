@@ -1,4 +1,4 @@
-package com.garpoo.cinatix.network
+package com.garpoo.cinatix.data.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

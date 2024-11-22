@@ -1,4 +1,4 @@
-package com.garpoo.cinatix.model
+package com.garpoo.cinatix.data.api
 
 data class UpcomingMoviesResponse(
     val dates: Dates,

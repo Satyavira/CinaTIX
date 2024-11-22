@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/putih"
-    tools:context=".MovieSinopsisActivity">
+    tools:context=".ui.activity.MovieSinopsisActivity">
 
     <!-- Back Icon -->
     <ImageView
         android:id="@+id/back_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_margin="16dp"
+        android:layout_margin="32dp"
         android:src="@drawable/ic_back_two"
         android:elevation="10dp"
         app:layout_constraintStart_toStartOf="parent"

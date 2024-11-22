@@ -1,4 +1,4 @@
-package com.garpoo.cinatix.adapter
+package com.garpoo.cinatix.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.garpoo.cinatix.databinding.ItemCastBinding
-import com.garpoo.cinatix.model.CastMember
+import com.garpoo.cinatix.data.api.CastMember
 
 class CastAdapter(private val castList: List<CastMember>) : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
