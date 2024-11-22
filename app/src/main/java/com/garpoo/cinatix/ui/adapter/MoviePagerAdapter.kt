@@ -1,4 +1,4 @@
-package com.garpoo.cinatix.adapter
+package com.garpoo.cinatix.ui.adapter
 
 import android.content.Context
 import android.os.Handler
@@ -12,8 +12,8 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.garpoo.cinatix.databinding.ItemMoviePosterBinding
-import com.garpoo.cinatix.model.Movie
-import com.garpoo.cinatix.model.getGenreNameById
+import com.garpoo.cinatix.data.api.Movie
+import com.garpoo.cinatix.data.api.getGenreNameById
 
 class MoviePagerAdapter(
     private var movies: List<Movie>,

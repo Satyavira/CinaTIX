@@ -1,10 +1,10 @@
-package com.garpoo.cinatix.adapter
+package com.garpoo.cinatix.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.garpoo.cinatix.OnboardingActivity
+import com.garpoo.cinatix.ui.activity.OnboardingActivity
 import com.garpoo.cinatix.R
 import com.garpoo.cinatix.databinding.ActivityOnBoardingPageOneBinding
 import com.garpoo.cinatix.databinding.ActivityOnBoardingPageTwoBinding

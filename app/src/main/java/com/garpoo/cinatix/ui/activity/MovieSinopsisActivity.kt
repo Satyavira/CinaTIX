@@ -1,4 +1,4 @@
-package com.garpoo.cinatix
+package com.garpoo.cinatix.ui.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,13 +10,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import com.garpoo.cinatix.adapter.CastAdapter
+import com.garpoo.cinatix.R
+import com.garpoo.cinatix.ui.adapter.CastAdapter
 import com.garpoo.cinatix.databinding.ActivityMovieSinopsisBinding
-import com.garpoo.cinatix.model.CreditsResponse
-import com.garpoo.cinatix.model.MovieDetailsResponse
-import com.garpoo.cinatix.model.MovieDetailsWithCreditsAndVideosResponse
-import com.garpoo.cinatix.network.ApiClient
-import com.garpoo.cinatix.network.MovieApiService
+import com.garpoo.cinatix.data.api.CreditsResponse
+import com.garpoo.cinatix.data.api.MovieDetailsWithCreditsAndVideosResponse
+import com.garpoo.cinatix.data.api.ApiClient
+import com.garpoo.cinatix.data.api.MovieApiService
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

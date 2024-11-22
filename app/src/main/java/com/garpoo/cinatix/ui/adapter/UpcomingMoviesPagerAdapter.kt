@@ -1,39 +1,40 @@
-package com.garpoo.cinatix.adapter
+package com.garpoo.cinatix.ui.adapter
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.garpoo.cinatix.R
+import com.garpoo.cinatix.data.api.Movie
+import com.garpoo.cinatix.data.api.getGenreNameById
 import com.garpoo.cinatix.databinding.ItemFilmBinding
-import com.garpoo.cinatix.model.Movie
-import com.garpoo.cinatix.model.getGenreNameById
 import java.text.DecimalFormat
 import kotlin.math.nextUp
 
-class MovieItemRecyclerAdapter(
-    private var movies: List<Movie>,
-    private val movieToSipnosis: (Int) -> Unit
-) : RecyclerView.Adapter<MovieItemRecyclerAdapter.MovieViewHolder>() {
+class UpcomingMoviesPagerAdapter(private val movieToSipnosis: (Int) -> Unit) : PagingDataAdapter<Movie, UpcomingMoviesPagerAdapter.MovieViewHolder>(MOVIE_COMPARATOR) {
 
     private var context: Context? = null
 
-    private val handler = Handler(Looper.getMainLooper())
-//    private val runnable = Runnable {
-//        movies.addAll(movies)
-//        notifyDataSetChanged()
-//    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        context = parent.context
+        val binding = ItemFilmBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(binding)
+    }
 
-    // ViewHolder class with ViewBinding
-    inner class MovieViewHolder(private val binding: ItemFilmBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        val movie = getItem(position)
+        if (movie != null) {
+            holder.bind(movie)
+        }
+    }
 
+    inner class MovieViewHolder(private val binding: ItemFilmBinding) : RecyclerView.ViewHolder(binding.root) {
         // Bind method to load data into views
         fun bind(movie: Movie) {
             binding.root.setOnClickListener {
@@ -74,20 +75,15 @@ class MovieItemRecyclerAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        context = parent.context
-        val binding = ItemFilmBinding.inflate(LayoutInflater.from(context), parent, false)
-        return MovieViewHolder(binding)
-    }
+    companion object {
+        private val MOVIE_COMPARATOR = object : DiffUtil.ItemCallback<Movie>() {
+            override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(movies[position])
-    }
-
-    override fun getItemCount(): Int = movies.size
-
-    fun updateMovies(newMovies: List<Movie>) {
-        movies = newMovies
-        notifyDataSetChanged()
+            override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 }
