@@ -90,4 +90,6 @@ class MoviePagerAdapter(
         movies = newMovies
         notifyDataSetChanged()
     }
+
+
 }
