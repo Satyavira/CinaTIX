@@ -33,7 +33,8 @@
             android:id="@+id/movie_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie Title"
+            android:text="@string/movie_title1"
+            android:fontFamily="@font/inter"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@color/black"
@@ -43,7 +44,8 @@
             android:id="@+id/movie_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Genre"
+            android:text="@string/genre1"
+            android:fontFamily="@font/inter"
             android:textSize="14sp"
             android:textColor="#858585" />
     </LinearLayout>
