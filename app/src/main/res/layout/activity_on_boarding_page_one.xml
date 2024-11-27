@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".OnBoardingPageOneActivity">
+    android:background="@color/putih"
+    android:padding="10dp">
 
     <!-- Logo Image -->
     <ImageView
@@ -93,6 +92,8 @@
         android:textSize="14sp"
         android:textColor="#000000"
         android:background="?android:attr/selectableItemBackground"
+        android:paddingStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/nextButton"
         app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
         app:layout_constraintStart_toStartOf="@id/guideline_start"/>
 
@@ -101,6 +102,7 @@
         android:id="@+id/nextButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/ic_button_next"
         app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
         app:layout_constraintEnd_toEndOf="@id/guideline_end" />

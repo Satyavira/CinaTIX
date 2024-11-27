@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/putih"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".ui.activity.SignUpActivity">
 
     <TextView
         android:id="@+id/welcomeback"
@@ -33,7 +34,7 @@
 
     <!-- Field Email -->
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/email"
+        android:id="@+id/signin_email"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
@@ -41,6 +42,7 @@
         android:hint="@string/your_email"
         android:paddingHorizontal="16dp"
         android:textColor="@color/black"
+        android:fontFamily="sans-serif-medium"
         android:textSize="16sp"
         android:elevation="20dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
@@ -49,7 +51,7 @@
 
     <!-- Field Password -->
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/password"
+        android:id="@+id/signin_password"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -58,39 +60,53 @@
         android:inputType="textPassword"
         android:paddingHorizontal="16dp"
         android:textColor="@color/black"
+        android:fontFamily="sans-serif-medium"
         android:textSize="16sp"
         android:elevation="20dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/signin_email" />
 
     <!-- Button Sign Up -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signup_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:backgroundTint="@color/yellow"
         android:text="@string/masuk"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:fontFamily="sans-serif-medium"
         app:cornerRadius="34dp"
-        app:layout_constraintBottom_toTopOf="@id/login_text"
+        app:layout_constraintBottom_toTopOf="@id/login_text_1"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start" />
 
     <!-- Text to Sign Up if don't have an account -->
     <TextView
-        android:id="@+id/login_text"
+        android:id="@+id/login_text_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/belum_punya_akun"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="100dp"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_daftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/daftar_sekarang"
+        android:textColor="@color/yellow"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
+        app:layout_constraintStart_toEndOf="@id/login_text_1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

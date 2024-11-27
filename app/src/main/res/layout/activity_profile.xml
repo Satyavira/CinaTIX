@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    android:background="#F5F5F5"
-    tools:context=".ProfileActivity">
+    android:background="@color/putih"
+    tools:context=".ui.activity.ProfileActivity">
 
     <TextView
         android:id="@+id/tv_my_profile"
@@ -49,13 +49,6 @@
                 android:textStyle="bold"
                 android:textColor="#000000" />
 
-            <TextView
-                android:id="@+id/tv_user_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/phone_number"
-                android:textSize="14sp"
-                android:textColor="#707070"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -76,42 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- Wishlist Movie -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackground">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_movie_wishlist" />
-
-                <TextView
-                    android:id="@+id/tv_wishlist_movie"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="Wishlist Movie"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_arrow_right" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0" />
 
             <!-- My Movies -->
             <LinearLayout
