@@ -178,6 +178,15 @@ data class Video(
     val id: String
 )
 
+data class wishlistMovie(
+    val id: Int,
+    val isFavorite: Boolean,
+    val title: String,
+    val genre: String,
+    val poster_path: String,
+    val rating: Double,
+)
+
 val tmdb = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjQ4MmM2ZWE5ZTlkOWFlYzY5NjhiOTVkZDZlNDBkNSIsIm5iZiI6MTczMTg1ODkwNC4zNDczOTMsInN1YiI6IjY3MjlkOGE4MDZkYzg4NTk2MzI0MDJhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.URW9VWtRtPPxWgaHRKFRPKJIfHJNw7SWNoOeFXQTu8E"
 
 fun getGenreList(): GenreList {

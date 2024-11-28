@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="343dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp"
@@ -81,15 +81,15 @@
                 android:layout_height="20dp"
                 android:src="@drawable/ic_invisible" />
 
-            <!-- Rating Text -->
-            <TextView
-                android:id="@+id/rating_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4 of 5"
-                android:textSize="14sp"
-                android:textColor="#6E6E6E"
-                android:layout_marginStart="8dp" />
         </LinearLayout>
+        <!-- Rating Text -->
+        <TextView
+            android:id="@+id/rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 of 5"
+            android:textSize="14sp"
+            android:textColor="#6E6E6E"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
 </LinearLayout>

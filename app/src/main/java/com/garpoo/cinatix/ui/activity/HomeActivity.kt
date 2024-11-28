@@ -20,13 +20,14 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.garpoo.cinatix.R
-import com.garpoo.cinatix.ui.adapter.MoviePagerAdapter
-import com.garpoo.cinatix.ui.adapter.MovieRecyclerAdapter
-import com.garpoo.cinatix.databinding.ActivityHomeBinding
+import com.garpoo.cinatix.adapter.MovieRecyclerAdapter
+import com.garpoo.cinatix.data.api.ApiClient
 import com.garpoo.cinatix.data.api.Movie
 import com.garpoo.cinatix.data.api.UpcomingMoviesResponse
-import com.garpoo.cinatix.data.api.ApiClient
-import com.google.firebase.auth.FirebaseAuth
+import com.garpoo.cinatix.databinding.ActivityHomeBinding
+import com.garpoo.cinatix.ui.adapter.MoviePagerAdapter
+import com.garpoo.cinatix.utils.BottomNavigationHandler
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +36,6 @@ import kotlin.math.abs
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var viewPager2: ViewPager2
     private lateinit var viewPagerIndicator: LinearLayout
     private lateinit var adapter: MoviePagerAdapter
@@ -51,10 +51,6 @@ class HomeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        binding.tvWelcome.text = firebaseAuth.currentUser?.displayName ?: "Anonymous"
 
         sliderHandler = Handler(Looper.getMainLooper())
 
@@ -215,12 +211,21 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
+        binding.bottomNavigation.selectedItemId = R.id.nav_home
+        BottomNavigationHandler.handleNavigation(this@HomeActivity,binding.bottomNavigation)
+
+
 
         // Firebase code is commented out for now
         /*
         database = FirebaseDatabase.getInstance()
         initBanner()
         */
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        binding.bottomNavigation.selectedItemId = R.id.nav_home
     }
 
     private fun setupViewPager(movies: List<Movie>?) {

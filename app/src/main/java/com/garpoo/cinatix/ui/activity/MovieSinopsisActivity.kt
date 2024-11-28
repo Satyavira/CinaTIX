@@ -30,6 +30,7 @@ class MovieSinopsisActivity : AppCompatActivity() {
     private lateinit var movieApiService: MovieApiService // Retrofit API service
     private var movieId: Int = -1 // The movie ID passed from the previous activity
     private lateinit var binding: ActivityMovieSinopsisBinding // View binding for your layout
+    private lateinit var movieDatas: MovieDetailsWithCreditsAndVideosResponse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,6 +95,7 @@ class MovieSinopsisActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val movieDetails = response.body()!!
+                    movieDatas = movieDetails
                     updateMovieDetailsUI(movieDetails)
                 } else {
                     Toast.makeText(this@MovieSinopsisActivity, "Failed to load movie details", Toast.LENGTH_SHORT).show()
@@ -169,11 +171,16 @@ class MovieSinopsisActivity : AppCompatActivity() {
 
     private fun addToFavorite(userId: String) {
         val timestamp = System.currentTimeMillis()
+        var movieImage = "https://image.tmdb.org/t/p/w500${movieDatas.poster_path}/"
         val favoriteMap = hashMapOf(
             "movieId" to movieId.toString(),
             "userId" to userId,
             "isFavorite" to true,  // Default value when adding a favorite
-            "timestamp" to timestamp
+            "timestamp" to timestamp,
+            "movieTitle" to movieDatas.title,
+            "genre" to movieDatas.genres[0].name,
+            "movieImage" to movieImage,
+            "rating" to movieDatas.vote_average,
         )
 
         val documentId = "$userId-$movieId"
