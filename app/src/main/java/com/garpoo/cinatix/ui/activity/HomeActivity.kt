@@ -32,6 +32,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import kotlin.math.abs
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
 
@@ -42,6 +43,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var recyclerViewComingSoon: RecyclerView
     private lateinit var movieRecyclerAdapter: MovieRecyclerAdapter
     private lateinit var sliderHandler: Handler
+    private lateinit var firebaseAuth: FirebaseAuth
     private val sliderRunnable = Runnable {
         binding.viewPager2.currentItem += 1
     }
