@@ -11,16 +11,16 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.garpoo.cinatix.R
-import com.garpoo.cinatix.data.api.Movie
 import com.garpoo.cinatix.data.api.getGenreNameById
+import com.garpoo.cinatix.data.api.wishlistMovie
 import com.garpoo.cinatix.databinding.ItemMovieCardBinding
 import java.text.DecimalFormat
 import kotlin.math.nextUp
 
-class MovieRecyclerAdapter(
-    private var movies: List<Movie>,
+class WishlistMovieRecyclerAdapter(
+    private var movies: List<wishlistMovie>,
     private val movieToSipnosis: (Int) -> Unit
-) : RecyclerView.Adapter<MovieRecyclerAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<WishlistMovieRecyclerAdapter.MovieViewHolder>() {
 
     private var context: Context? = null
 
@@ -35,25 +35,23 @@ class MovieRecyclerAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         // Bind method to load data into views
-        fun bind(movie: Movie) {
+        fun bind(movie: wishlistMovie) {
             binding.root.setOnClickListener {
                 movieToSipnosis.invoke(movie.id)
             }
             context?.let {
                 // Load movie poster using Glide with rounded corners
                 Glide.with(it)
-                    .load("https://image.tmdb.org/t/p/w500".plus(movie.poster_path))
+                    .load(movie.poster_path)
                     .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
                     .into(binding.moviePosterImage)
             }
 
             // Set text data
             binding.movieTitle.text = movie.title
-            val firstGenreId = movie.genre_ids.firstOrNull() ?: 0
-            val genreName = getGenreNameById(firstGenreId)
-            binding.movieGenre.text = genreName
-            val rating: Double = if (movie.vote_average != 0.0) {
-                (movie.vote_average / 2).nextUp()
+            binding.movieGenre.text = movie.genre
+            val rating: Double = if (movie.rating != 0.0) {
+                (movie.rating / 2).nextUp()
             } else {
                 0.0
             }
