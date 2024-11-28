@@ -52,6 +52,10 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        binding.tvWelcome.text = firebaseAuth.currentUser?.displayName ?: "Anonymous"
+
         sliderHandler = Handler(Looper.getMainLooper())
 
         // Hardcoded list of movies for now
