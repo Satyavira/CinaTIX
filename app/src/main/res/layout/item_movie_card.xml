@@ -15,7 +15,7 @@
         android:layout_height="120dp"
         android:scaleType="centerCrop"
         android:layout_marginEnd="16dp"
-        android:contentDescription="Movie Poster" />
+        android:contentDescription="@string/movie_poster" />
 
     <!-- Text and Rating Layout -->
     <LinearLayout
@@ -29,7 +29,8 @@
             android:id="@+id/movie_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home Sweet Loan (2024)"
+            android:text="@string/home_sweet_loan_2024"
+            android:fontFamily="@font/inter"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#12293F" />
@@ -39,7 +40,8 @@
             android:id="@+id/movie_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Drama Comedy"
+            android:text="@string/drama_comedy"
+            android:fontFamily="@font/inter"
             android:textSize="14sp"
             android:textColor="#6E6E6E"
             android:layout_marginTop="4dp" />

@@ -36,7 +36,8 @@
                     android:id="@+id/tv_welcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome Lisa"
+                    android:text="@string/welcome_lisa"
+                    android:fontFamily="@font/inter"
                     android:textSize="12sp"
                     android:textColor="#6E6E6E"
                     app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +47,8 @@
                     android:id="@+id/tv_welcome2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Let’s relax and watch a movie."
+                    android:text="@string/let_s_relax_and_watch_a_movie"
+                    android:fontFamily="@font/inter"
                     android:textSize="12sp"
                     android:textColor="#3A3434"
                     android:textStyle="bold"
@@ -83,14 +85,16 @@
                     android:textStyle="bold"
                     android:textColor="#12293F"
                     android:layout_weight="1"
-                    android:text="Now Playing" />
+                    android:text="@string/now_playing"
+                    android:fontFamily="@font/inter"/>
 
                 <TextView
                     android:id="@+id/tv_now_playing_see_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#CEA860"
-                    android:text="See All" />
+                    android:text="@string/see_all"
+                    android:fontFamily="@font/inter"/>
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -150,7 +154,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Coming Soon"
+                    android:text="@string/coming_soon"
+                    android:fontFamily="@font/inter"
                     android:textColor="#12293F"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -159,7 +164,8 @@
                     android:id="@+id/tv_coming_soon_see_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See All"
+                    android:text="@string/see_all1"
+                    android:fontFamily="@font/inter"
                     android:textColor="#CEA860" />
             </LinearLayout>
 

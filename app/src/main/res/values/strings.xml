@@ -117,4 +117,19 @@
     <string name="of_5">%1$s of 5</string>
     <string name="deskripsiFilm">%1$s • %2$s • %3$d min</string>
     <string name="your_name">Your Name</string>
+    <string name="welcome_lisa">Welcome Lisa</string>
+    <string name="let_s_relax_and_watch_a_movie">Let’s relax and watch a movie.</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="see_all">See All</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="see_all1">See All</string>
+    <string name="pemeran">Pemeran</string>
+    <string name="judul_film">Judul Film</string>
+    <string name="genre">Genre</string>
+    <string name="_4_of_5">4 of 5</string>
+    <string name="movie_poster">Movie Poster</string>
+    <string name="home_sweet_loan_2024">Home Sweet Loan (2024)</string>
+    <string name="drama_comedy">Drama Comedy</string>
+    <string name="movie_title1">Movie Title</string>
+    <string name="genre1">Genre</string>
 </resources>

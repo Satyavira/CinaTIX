@@ -27,7 +27,8 @@
             android:id="@+id/movieTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Judul Film"
+            android:text="@string/judul_film"
+            android:fontFamily="@font/inter"
             android:textStyle="bold"
             android:textSize="16sp"
             android:paddingTop="8dp"/>
@@ -37,7 +38,8 @@
             android:id="@+id/movieGenre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Genre"
+            android:text="@string/genre"
+            android:fontFamily="@font/inter"
             android:textSize="14sp"
             android:textColor="@color/gray"/>
 
@@ -84,7 +86,8 @@
                 android:id="@+id/rating_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4 of 5"
+                android:text="@string/_4_of_5"
+                android:fontFamily="@font/inter"
                 android:textSize="14sp"
                 android:textColor="#6E6E6E"
                 android:layout_marginStart="8dp" />
