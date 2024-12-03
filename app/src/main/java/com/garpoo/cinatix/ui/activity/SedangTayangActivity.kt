@@ -10,11 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
+import com.garpoo.cinatix.R
 import com.garpoo.cinatix.databinding.ActivitySedangTayangBinding
 import com.garpoo.cinatix.data.api.ApiClient
 import com.garpoo.cinatix.ui.adapter.UpcomingMoviesPagerAdapter
 import com.garpoo.cinatix.ui.viewmodel.UpcomingMoviesViewModel
 import com.garpoo.cinatix.ui.viewmodel.UpcomingMoviesViewModelFactory
+import com.garpoo.cinatix.utils.BottomNavigationHandler
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -106,6 +108,13 @@ class SedangTayangActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
+        binding.bottomNavigation.selectedItemId = R.id.nav_home
+        BottomNavigationHandler.handleNavigation(this@SedangTayangActivity,binding.bottomNavigation)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        binding.bottomNavigation.selectedItemId = R.id.nav_home
     }
 
     private fun movieToSipnosis(movieId: Int) {
