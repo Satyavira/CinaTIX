@@ -1,5 +1,6 @@
 package com.garpoo.cinatix.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,16 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
         binding.tvUserName.text = firebaseAuth.currentUser?.displayName ?: "Anonymous"
+        binding.llFavorite.setOnClickListener {
+            val intent = Intent(this@ProfileActivity, WishlistMovieActivity::class.java)
+            startActivity(intent)
+        }
+        binding.llLogOut.setOnClickListener {
+            firebaseAuth.signOut()
+            val intent = Intent(this@ProfileActivity, SignInActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
