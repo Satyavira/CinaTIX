@@ -56,4 +56,22 @@ interface MovieApiService {
         @Query("append_to_response") appendToResponse: String = "videos,credits",
         @Query("language") language: String = "en-US"
     ): Call<MovieDetailsWithCreditsAndVideosResponse>
+    @GET("search/movie")
+    fun searchMovies(
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean = false,
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1,
+        @Header("accept") accept: String = "application/json",
+        @Header("Authorization") authorization: String = tmdb,
+    ): Call<UpcomingMoviesResponse>
+    @GET("search/movie")
+    suspend fun searchMoviesForPager(
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean = false,
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1,
+        @Header("accept") accept: String = "application/json",
+        @Header("Authorization") authorization: String = tmdb,
+    ): UpcomingMoviesResponse
 }
