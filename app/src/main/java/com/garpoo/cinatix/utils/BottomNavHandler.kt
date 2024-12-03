@@ -5,6 +5,7 @@ import android.content.Intent
 import com.garpoo.cinatix.R
 import com.garpoo.cinatix.ui.activity.HomeActivity
 import com.garpoo.cinatix.ui.activity.ProfileActivity
+import com.garpoo.cinatix.ui.activity.SearchActivity
 import com.garpoo.cinatix.ui.activity.WishlistMovieActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -19,6 +20,9 @@ object BottomNavigationHandler {
                     true
                 }
                 R.id.nav_search -> {
+                    context.startActivity(Intent(context, SearchActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    })
                     true
                 }
                 R.id.nav_wishlist -> {

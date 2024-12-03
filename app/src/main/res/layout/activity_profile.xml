@@ -74,6 +74,7 @@
 
             <!-- My Movies -->
             <LinearLayout
+                android:id="@+id/ll_favorite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -111,6 +112,7 @@
 
             <!-- Logout -->
             <LinearLayout
+                android:id="@+id/ll_log_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
