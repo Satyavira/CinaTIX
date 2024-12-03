@@ -79,36 +79,44 @@
         android:fontFamily="@font/inter"
         android:textStyle="bold|normal"
         app:cornerRadius="34dp"
-        app:layout_constraintBottom_toTopOf="@id/login_text_1"
+        app:layout_constraintBottom_toTopOf="@id/ll_belum_punya_akun"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start" />
 
     <!-- Text to Sign Up if don't have an account -->
-    <TextView
-        android:id="@+id/login_text_1"
+    <LinearLayout
+        android:id="@+id/ll_belum_punya_akun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:textStyle="bold|normal"
-        android:text="@string/belum_punya_akun"
-        android:textColor="@color/black"
-        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
-        android:layout_marginStart="100dp"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+        <TextView
+            android:id="@+id/login_text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:textStyle="bold|normal"
+            android:text="@string/belum_punya_akun"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+             />
 
-    <TextView
-        android:id="@+id/txt_daftar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/daftar_sekarang"
-        android:textColor="@color/yellow"
-        android:textSize="14sp"
-        android:fontFamily="@font/inter"
-        android:textStyle="bold"
-        android:layout_marginStart="6dp"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
-        app:layout_constraintStart_toEndOf="@id/login_text_1" />
+        <TextView
+            android:id="@+id/txt_daftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daftar_sekarang"
+            android:textColor="@color/yellow"
+            android:textSize="14sp"
+            android:fontFamily="@font/inter"
+            android:textStyle="bold"
+            android:layout_marginStart="6dp"
+            />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
