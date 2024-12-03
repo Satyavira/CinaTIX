@@ -44,7 +44,7 @@ class UpcomingMoviesPagerAdapter(private val movieToSipnosis: (Int) -> Unit) : P
                 // Load movie poster using Glide with rounded corners
                 Glide.with(it)
                     .load("https://image.tmdb.org/t/p/w500".plus(movie.poster_path))
-                    .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60))) // Center crop with rounded corners
+                    .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(60)))
                     .into(binding.moviePoster)
             }
 
