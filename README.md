@@ -11,5 +11,8 @@ Anggota :
 # Deskripsi Aplikasi
 CinaTIX adalah aplikasi mobile yang membantu pengguna mencari, menonton, dan mengelola pengalaman menonton film mereka. Aplikasi ini dilengkapi dengan fitur eksplorasi film terbaru, pemesanan tiket, dan pengelolaan jadwal tontonan. Pengguna dapat membuat wishlist film, menambahkan jadwal ke kalender, dan mendapatkan notifikasi tentang film terbaru. Dengan antarmuka modern dan navigasi intuitif, CinaTIX menawarkan pengalaman menonton yang lebih terorganisir dan menyenangkan. Ini adalah platform lengkap bagi para pecinta film untuk selalu terhubung dengan film favorit mereka.
 
+# Video Penggunaan 
+Link Video : https://youtube.com/shorts/lM4JGZOtUCI?feature=share 
+
 # Dokumentasi
 Link Figma : https://www.figma.com/design/AuYjQDEdc3NOm4As2gpJRu/CinaTIX?node-id=0-1&t=HmXEiQN9tBQl3L2P-1
