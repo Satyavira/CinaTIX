@@ -17,6 +17,7 @@ https://docs.google.com/spreadsheets/d/1g3MkaS1ckTg-iRsdGmm2zvPY7roWtV7YyyxvhH-P
 # Library :
 - Retrofit 2
 - GSON
+- Glide
 - Firebase core
 - Firebase auth
 - Firebase firestore
